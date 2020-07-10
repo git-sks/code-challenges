@@ -30,6 +30,17 @@ def zero_matrix(matrix):
                     zeroes_rows.add(row_idx)
                     zeroes_cols.add(col_idx)
 
+    for row_pos in zeroes_rows:
+        for idx in range(0, len(matrix[row_pos])):
+            matrix[row_pos][idx] = 0
+
+    for col_pos in zeroes_cols:
+        for row_idx, row in enumerate(matrix):
+            matrix[row_idx][col_pos] = 0
+
+    return matrix
+
+
 
 if __name__ == "__main__":
     import doctest
