@@ -32,6 +32,21 @@ three
 def fit_to_width(string, limit):
     """Print string within a character limit."""
 
+    words = string.split()
+    line_count = 0
+    line = ""
+
+    for word in words:
+        if line_count + len(word) > limit:
+            print(line[0:-1])
+            line = word + " "
+        else:
+            line = line + word + " "
+        
+        line_count = len(line)
+
+    print(line[0:-1])
+
 
 if __name__ == '__main__':
     import doctest
